@@ -23,8 +23,9 @@ class ProductManager{
     this.products.push(product)
     }
     getProductsById = ()=>{
-        if( this.products.find === id ){
-           return this.products.id = this.products.find
+        const result = this.products.find( (products) => products.code === newProduct.code);
+        if(result){
+           return this.products.code 
         }else{
             "Not Found"
         }
@@ -35,3 +36,4 @@ const newProduct = new ProductManager()
 newProduct.addProducts("Tomate" , "verdura roja y versatil al comer" , "300 el kilo" )
 newProduct.getProductsById(1)
 console.log(newProduct)
+
