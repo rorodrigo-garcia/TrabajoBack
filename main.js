@@ -5,9 +5,10 @@ class ProductManager{
         this.patch = "./"
     }
  
+    
     getProducts = () => this.products
 
-    addProducts = (id,title,description,price,thumbnail,code,stock= 7) =>{  
+    addProducts = (id,title,description,price,thumbnail,code,stock= 7 , ) =>{  
     const product ={
         title,
         description,
@@ -15,8 +16,12 @@ class ProductManager{
         thumbnail,
         code,
         stock,
-        id
+        id,
+        
     }
+    
+ 
+
     if (this.products.length === 0){
         this.products.id = 1
     } else{
@@ -51,13 +56,13 @@ const manejoProductos = async ()=> {
  
 
 try {
-    await fs.promises.writeFile("./productos.json" , `${productos}` , "utf-8")
+    await fs.promises.writeFile("./productos.json" , `[ ${productos} ,` , "utf-8")
     console.log("se agregaron los productos")
 } catch (error) {
     console.log(error)
 }
 try {
-    await fs.promises.appendFile("./productos.json" , `${productos2}` , "utf-8")
+    await fs.promises.appendFile("./productos.json" , `${productos2} ]` , "utf-8")
     console.log("se agregaron nuevos productos")
 } catch (error) {
     console.log(error)

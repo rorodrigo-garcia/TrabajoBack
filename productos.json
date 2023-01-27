@@ -1,1 +1,1 @@
-{"products":[{"title":"fruta roja y versatil al comer","description":"300 el kilo","stock":7,"id":"Tomate"}],"patch":"./"}{"products":[{"title":"verdura rica y con varias capas","description":"250 el kilo","stock":7,"id":"Cebolla"}],"patch":"./"}
+[ {"products":[{"title":"fruta roja y versatil al comer","description":"300 el kilo","stock":7,"id":"Tomate"}],"patch":"./"} ,{"products":[{"title":"verdura rica y con varias capas","description":"250 el kilo","stock":7,"id":"Cebolla"}],"patch":"./"} ]
