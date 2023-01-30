@@ -102,9 +102,11 @@ const manejoProductos = async ()=> {
             const resp = await fetch ("./products.json")
             const data = await resp.json()
             app.get('/' ,(res,req)=>{
-                res.send(resp)
+                res.send(cargarProductos())
+                
             })
            }
+           
            
        
 
