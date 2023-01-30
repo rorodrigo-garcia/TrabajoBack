@@ -99,10 +99,10 @@ const manejoProductos = async ()=> {
         
         
         const cargarProductos = async() =>{
-            const resp = await fetch ("./products.json")
+            const resp = await fetch ("./productos.json")
             const data = await resp.json()
             app.get('/' ,(res,req)=>{
-                res.send(cargarProductos())
+                res.send(cargarProductos(data))
                 
             })
            }
