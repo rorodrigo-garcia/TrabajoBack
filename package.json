@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "name": "trabajoback",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rorodrigo-garcia/TrabajoBack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rorodrigo-garcia/TrabajoBack/issues"
+  },
+  "homepage": "https://github.com/rorodrigo-garcia/TrabajoBack#readme",
+  "description": ""
+}
