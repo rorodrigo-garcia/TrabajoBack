@@ -101,10 +101,12 @@ const manejoProductos = async ()=> {
         const cargarProductos = async() =>{
             const resp = await fetch ("./products.json")
             const data = await resp.json()
+            app.get('/' ,(res,req)=>{
+                res.send(resp)
+            })
            }
-           app.get('/' ,(res,req)=>{
-            res.send(resp)
-        })
+           
+       
 
     
 app.listen( PORT, err=>{
