@@ -8,7 +8,7 @@ class ProductManager{
 
     constructor(){
         this.products = []
-        this.patch = "./products.json"
+        this.path= "./productos.json"
     }
  
     
@@ -80,12 +80,24 @@ const manejoProductos = async ()=> {
     } catch (error) {
         console.log(error)
     }
-    try {
-        await fs.promises.readFile("./productos.json" , "utf-8")
-        console.log("leido")
-    } catch (error) {
-        console.log(error)
-    }
+    let getProducts = async () => {
+        try {
+        if (fs.existsSync(this.path)) {
+        const data = await fs.promises.readFile(this.path,utf-8)
+        const products = JSON.parse(data)
+        console.log(products)
+        return products
+        }
+        await fs.promises.writeFile(this.path, [], utf-8)
+        return []
+        } catch (err) {
+        console.error(err)
+        }
+        }
+        app.get("/products" , (req,res )=>{
+            res.send(getProducts())
+           })
+               
     // try {
         //     await fs.promises.unlink ("./productos.json" , "utf-8")
         //     console.log("se borro")
@@ -94,20 +106,11 @@ const manejoProductos = async ()=> {
             // } aca cree el borrar el archivo,lo comente para que pueda ver la funcionabilidad de el resto
             
         }
+       
         manejoProductos()
         
         
-        
-        const cargarProductos = async() =>{
-            const resp = await fetch ("./productos.json")
-            const data = await resp.json()
-            app.get('/' ,(res,req)=>{
-                res.send(cargarProductos(data))
-                
-            })
-           }
-           
-           
+      
        
 
     
