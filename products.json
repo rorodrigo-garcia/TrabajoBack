@@ -1,0 +1,1 @@
+ [ {"products":[{"title":"Tomate","description":"fruta roja y versatil al comer","price":"300 el kilo","stock":7,"id":1}],"path":"./products.json"} ,{"products":[{"title":"Cebolla","description":"verdura rica y con varias capas","price":"250 el kilo","stock":7,"id":2}],"path":"./products.json"} ]

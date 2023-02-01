@@ -1,14 +1,15 @@
-//Como hago para traer un archivo .json con express?
+
 
 import  express  from "express"
 import fs from "fs"
 
 
 class ProductManager{
-
+    
     constructor(){
+       
         this.products = []
-        this.path= "./productos.json"
+        this.path= "./products.json"
     }
  
     
@@ -25,9 +26,10 @@ class ProductManager{
             id,
             
         }
-        
-        
-        
+     
+               
+       
+
         if (this.products.length === 0){
             this.products.id = 1
         } else{
@@ -48,6 +50,7 @@ class ProductManager{
 const app = express()
 const PORT = 8080
 
+app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 // const fs = require("fs")
@@ -62,6 +65,9 @@ newProduct2.getProductsById(2)
 let productos = JSON.stringify(newProduct)
 let productos2 = JSON.stringify(newProduct2)
 let losProductos = productos + productos2
+
+
+  
 const manejoProductos = async ()=> {
     
     let productos = JSON.stringify(newProduct)
@@ -69,37 +75,35 @@ const manejoProductos = async ()=> {
     
     
     try {
-        await fs.promises.writeFile("./productos.json" , ` [ ${productos} ,` , "utf-8")
+        await fs.promises.writeFile("./products.json" , ` [ ${productos} ,` , "utf-8")
         console.log("se agregaron los productos")
     } catch (error) {
         console.log(error)
     }
     try {
-        await fs.promises.appendFile("./productos.json" , `${productos2} ]` , "utf-8")
+        await fs.promises.appendFile("./products.json" , `${productos2} ]` , "utf-8")
         console.log("se agregaron nuevos productos")
     } catch (error) {
         console.log(error)
-    }
-    let getProducts = async () => {
+    }  
+         getProductos = async () => {
         try {
         if (fs.existsSync(this.path)) {
-        const data = await fs.promises.readFile(this.path,utf-8)
+        const data = await fs.promises.readFile(this.path, 'utf-8')
         const products = JSON.parse(data)
         console.log(products)
         return products
         }
-        await fs.promises.writeFile(this.path, [], utf-8)
+        await fs.promises.writeFile(this.path, '[]', 'utf-8')
         return []
         } catch (err) {
         console.error(err)
         }
         }
-        app.get("/products" , (req,res )=>{
-            res.send(getProducts())
-           })
+      
                
     // try {
-        //     await fs.promises.unlink ("./productos.json" , "utf-8")
+        //     await fs.promises.unlink ("./products.json" , "utf-8")
         //     console.log("se borro")
         // } catch (error) {
             //     console.log(error)
@@ -108,14 +112,15 @@ const manejoProductos = async ()=> {
         }
        
         manejoProductos()
-        
-        
+     
       
-       
-
+        app.get("/products" , (req,res )=>{
+            res.send(getProductos())
+        })
     
-app.listen( PORT, err=>{
-    if (err) console.log(err)
-        console.log(`Escuchando en el puerto ${PORT}`)
     
-})
+        app.listen( PORT, err=>{
+            if (err) console.log(err)
+            console.log(`Escuchando en el puerto ${PORT}`)
+    
+        })
